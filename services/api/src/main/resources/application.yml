@@ -1,0 +1,46 @@
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: never
+spring:
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/lucena_finance}
+    username: ${DATABASE_USER:lucena_app}
+    password: ${DATABASE_PASSWORD:local-dev-only-change-me}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+app:
+  firebase:
+    project-id: ${FIREBASE_PROJECT_ID:lucenas1010}
+  profile-encryption-key: ${PROFILE_ENCRYPTION_KEY:local-development-only-change-me}
+  open-finance:
+    provider: ${OPEN_FINANCE_PROVIDER:}
+    client-id: ${OPEN_FINANCE_CLIENT_ID:}
+    client-secret: ${OPEN_FINANCE_CLIENT_SECRET:}
+    api-url: ${OPEN_FINANCE_API_URL:https://api.pluggy.ai}
+    include-sandbox: ${OPEN_FINANCE_INCLUDE_SANDBOX:false}
+  openai:
+    api-key: ${OPENAI_API_KEY:}
+    model: ${OPENAI_MODEL:gpt-6-luna}
+  billing:
+    asaas:
+      api-key: ${ASAAS_API_KEY:}
+      webhook-token: ${ASAAS_WEBHOOK_TOKEN:}
+      base-url: ${ASAAS_API_URL:https://api.asaas.com/v3}
+      public-url: ${APP_PUBLIC_URL:http://localhost:4200}

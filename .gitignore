@@ -1,0 +1,13 @@
+node_modules/
+dist/
+target/
+.m2-local/
+.angular/
+.env
+!.env.example
+firebase-admin.json
+*.log
+.postgres-data/
+.postgres-init-password
+__pycache__/
+.venv/
